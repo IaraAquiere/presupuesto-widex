@@ -11,7 +11,7 @@ const Home = () => {
     <div className="table-wrapper">
       <div className="busqueda">
         <input
-          className="form-control"
+          className="form-control border border-light-subtle"
           type="text"
           placeholder="Buscar orden"
         />

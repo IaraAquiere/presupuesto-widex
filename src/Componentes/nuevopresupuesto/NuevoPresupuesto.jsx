@@ -1,5 +1,4 @@
-import { Link } from "@material-ui/core";
-import { GoSearch } from "react-icons/go";
+
 
 const NuevoPresupuesto = () => {
   return (
@@ -9,7 +8,7 @@ const NuevoPresupuesto = () => {
           <div className="container">
             <form>
               <div className="row">
-                <div className="col-lg-9 col-md-8">
+                <div className="col-lg-8 col-md-8 ">
                   <div className="p-4 p-xl-5 my-3 my-xl-4 card">
                     <div className="row">
                       <div className="col">
@@ -237,6 +236,68 @@ const NuevoPresupuesto = () => {
                           className="my-2 form-control"
                         />
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-4 ">
+                  <div className="sticky-top  pt-xl-4">
+                    <input
+                      className="form-control border border-light-subtle"
+                      type="text"
+                      placeholder="Buscar seleccion Widex"
+                      data-bs-toggle="modal"
+                    />
+                    <div className="py-3">
+                      <table class="table table-hover table-bordered ">
+                        <thead>
+                          <tr>
+                            <th>Codigo</th>
+                            <th colspan="2">Nombre</th>
+                            <th>Comision</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                          <tr>
+                            <th>1256</th>
+                            <td colspan="2"> victoria aquiere</td>
+                            <td>1.32</td>
+                          </tr>
+                          <tr>
+                            <th>2489</th>
+                            <td colspan="2">victoria aquiere</td>
+                            <td>2.56</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <input
+                      className="form-control border border-light-subtle"
+                      type="text"
+                      placeholder="Buscar vendedores"
+                      data-bs-toggle="modal"
+                    />
+                    <div className="py-3">
+                      <table class="table table-hover table-bordered ">
+                        <thead>
+                          <tr>
+                            <th>Codigo</th>
+                            <th colspan="2">Nombre</th>
+                            <th>Comision</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                          <tr>
+                            <th>1256</th>
+                            <td colspan="2"> victoria aquiere</td>
+                            <td>1.32</td>
+                          </tr>
+                          <tr>
+                            <th>2489</th>
+                            <td colspan="2">victoria aquiere</td>
+                            <td>2.56</td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </div>
