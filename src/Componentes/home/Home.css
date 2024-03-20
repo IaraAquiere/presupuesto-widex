@@ -1,0 +1,47 @@
+.table-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  height: 40vh;
+  background-color: rgb(253, 253, 253);
+}
+
+.tabla {
+  box-shadow: 0px 2px 5px;
+  width: 2800px;
+  max-width: 40%;
+  margin: auto;
+}
+
+.tabla-th{
+    font-size: 20px;
+}
+
+
+.tabla-td {
+  border-top: 0.8px solid rgb(5, 5, 5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.actions {
+  cursor: pointer;
+}
+
+.busqueda input {
+    width: 450px;
+    height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px;
+  border-radius: 15px;
+  font-size: 20px;
+  padding: 10px;
+  
+}
+
+.editar {
+  color: black;
+}

@@ -1,0 +1,22 @@
+.navbar{
+    background-color: rgb(238, 234, 234) !important;
+}
+
+.item-lista{
+    color: rgb(58, 57, 57);
+}
+
+.activo{
+    color: green;
+}
+
+.logout{
+    text-decoration: none;
+    list-style: none;
+    color: red;
+}
+
+.logo{
+    width: 125px;
+}
+
