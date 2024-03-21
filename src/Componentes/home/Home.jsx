@@ -17,52 +17,32 @@ const Home = () => {
         />
       </div>
       <div className="tabla-busqueda">
-        <table className="tabla">
-          <thead className="tabla-thead">
-            <tr className="tabla-th">
-              <th>Codigo</th>
-              <th className="expandir">Paciente</th>
+        <table class="table table-hover table-bordered ">
+          <thead>
+            <tr>
+              <th>Nro. Orden</th>
+              <th colspan="2">Presupuesto</th>
+              <th colSpan="2">Cliente</th>
               <th>Fecha</th>
-              <th className="expandir-sucursal">Estado</th>
-              <th></th>
+              <th>Estado</th>
+              <th>Nro. Entrega</th>
+              <th>Factura</th>
             </tr>
           </thead>
-          <tbody>
-            <tr className="tabla-td">
-              <td>02469</td>
-              <td>Victoria Aquiere</td>
-              <td>24/04</td>
-              <td></td>
-              <td>
-                <span className="actions">
-                  <Link className="editar" to="nuevopresupuesto">
-                    <MdOutlineEdit size={30} />
-                  </Link>
-                </span>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr className="tabla-td">
-              <td>02469</td>
-              <td>Yamil Aquiere</td>
-              <td>24/04</td>
-              <td></td>
-              <td>
-                <span className="actions">
-                  <Link className="editar" to="nuevopresupuesto">
-                    <MdOutlineEdit size={30} />
-                  </Link>
-                </span>
-              </td>
+          <tbody class="table-group-divider">
+            <tr>
+              <td>1256</td>
+              <td colSpan="2">hola como va</td>
+              <td colspan="2"> victoria aquiere</td>
+              <td>13/07/2023</td>
+              <td>Ingresado</td>
+              <td>23452</td>
+              <td>00000000045</td>
             </tr>
           </tbody>
         </table>
       </div>
-     
     </div>
-
-    
   );
 };
 

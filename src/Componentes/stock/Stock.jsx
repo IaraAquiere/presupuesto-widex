@@ -1,5 +1,3 @@
-
-
 import "./Stock.css";
 
 const Stock = () => {
@@ -25,7 +23,22 @@ const Stock = () => {
             data-bs-parent="#accordionExample"
           >
             <div class="accordion-body">
-              <p>productos seleccionados</p>
+              <table class="table table-hover table-bordered ">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th colspan="2">Producto</th>
+                    <th>Cantidad</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    <th>1256</th>
+                    <td colspan="2">celular algo ms</td>
+                    <td>3</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
