@@ -1,4 +1,4 @@
-
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const NuevoPresupuesto = () => {
   return (
@@ -161,8 +161,6 @@ const NuevoPresupuesto = () => {
                         </div>
                       </div>
                     </div>
-                    <hr className="my-4" />
-
                     <div className="row">
                       <div className="col">
                         <label className="fw-bold form-label">Cobertura:</label>
@@ -237,6 +235,39 @@ const NuevoPresupuesto = () => {
                         />
                       </div>
                     </div>
+                    <hr className="my-4" />
+                    <div className="row">
+                      <div className="col">
+                        <label className="fw-bolder form-label">
+                          Items:
+                          <button
+                            className="btn btn-dark m-2"
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                          >
+                            <BiSearchAlt2 />
+                          </button>
+                        </label>
+                        <table className="table table-hover table-bordered ">
+                          <thead>
+                            <tr>
+                              <th>Id</th>
+                              <th>Producto</th>
+                              <th>Cantidad</th>
+                              <th>Precio</th>
+                            </tr>
+                          </thead>
+                          <tbody className="table-group-divider">
+                            <tr>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-lg-4 ">
@@ -303,6 +334,34 @@ const NuevoPresupuesto = () => {
                 </div>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+      {/* modal */}
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Buscar Productos:
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <select
+              class="form-select"
+              multiple
+              aria-label="Multiple select example"
+            >
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
           </div>
         </div>
       </div>

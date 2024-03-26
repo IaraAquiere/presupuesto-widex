@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   const menuData = [
     {
-      path: "/",
+      path: "/home",
       name: "Ordenes",
     },
     {
@@ -27,7 +27,7 @@ const NavBar = () => {
       <Navbar className="navbar" expand="lg" bg="light">
         <Container>
           <Navbar.Brand className="brand">
-            <NavLink to="/">
+            <NavLink to="/home">
               <img
               className="logo"
                 src="https://www.widex.com.ar/img/widex-logo.png"
@@ -52,7 +52,7 @@ const NavBar = () => {
                 Perfil
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/login" className="logout">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="/" className="logout">Logout</NavDropdown.Item>
             </NavDropdown>
               </Nav>
             </Nav>

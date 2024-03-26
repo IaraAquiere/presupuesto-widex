@@ -1,0 +1,17 @@
+
+POST http://localhost:5000/api/articulos
+Authorization: Bearer ESTE_ES_EL_TOKEN
+
+###
+
+POST http://localhost:5000/api/login 
+content-type: application/json
+
+{
+    "Username": "Vicho",
+    "Password": "1234"
+}
+
+###
+POST http://localhost:5000/api/articulos
+Authorization: Bearer ESTE_ES_EL_TOKEN

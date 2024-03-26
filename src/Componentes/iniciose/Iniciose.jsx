@@ -6,17 +6,12 @@ import "./Iniciose.css";
 const Iniciose = () => {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
-  const [registrando, setRegistrando] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    if (registrando) {
-      registrar(usuario, contraseña);
-    }
-
     if (usuario == "Vicho") {
       alert("Hola");
-      navigate("/");
+      navigate("/home");
     }
 
     e.preventDefault();
@@ -24,13 +19,12 @@ const Iniciose = () => {
   return (
     <div className="todo">
       <div className="wrapper">
-        <h1>{registrando ? "Crear cuenta" : "Iniciar sesion"}</h1>
-        <form action="" onSubmit={handleSubmit}>
+        <h1>Iniciar sesion</h1>
+        <form onSubmit={handleSubmit}>
           <div className="text-login">
             <p>Usuario</p>
             <input
               type="text"
-              placeholder="Nombre de usuario"
               onChange={(e) => setUsuario(e.target.value)}
               value={usuario}
               required
@@ -41,24 +35,19 @@ const Iniciose = () => {
             <p>Contraseña</p>
             <input
               type="password"
-              placeholder="Contraseña"
               onChange={(e) => setContraseña(e.target.value)}
               value={contraseña}
               required
             />
           </div>
-
-          <button className="btn">
-            {registrando ? "Crear cuenta" : "Inicia sesion"}
-          </button>
-
-          <div className="register-lnk">
-            <p>
-              {registrando ? "¿Ya tienes una cuenta?" : "No tenes cuenta"}{" "}
-              <a className="enlace" href="#" onClick={() => setRegistrando(!registrando)}>
-                {registrando ? "Iniciar sesion" : "Registrate aqui"}
+          <div class="d-grid gap-8 col-8 mx-auto">
+            <div className="me-md-16 mt-4">
+              <a className="enlace-button" href="/home">
+                <button type="button" class="btn btn-dark btn-lg">
+                  Iniciar sesion
+                </button>
               </a>
-            </p>
+            </div>
           </div>
         </form>
       </div>
