@@ -1,27 +1,19 @@
-import React, { useState } from "react";
-import { MdOutlineEdit } from "react-icons/md";
-import { Link } from "react-router-dom";
-
-import "./Home.css";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
-const Home = () => {
+import Busqueda from "../busqueda/Busqueda";
+import "./Ordenes.css";
+const Ordenes = () => {
   return (
     <div className="table-wrapper">
-      <div className="busqueda">
-        <input
-          className="form-control border border-light-subtle"
-          type="text"
-          placeholder="Buscar orden"
-        />
-      </div>
+      <Busqueda
+        className1="d-flex flex-row justify-content-center m-3"
+        className2="form-control form-control-lg border border-dark-subtle w-50  "
+        placeholder="Buscar Orden"
+      />
       <div className="tabla-busqueda">
-        <table class="table table-hover table-bordered ">
+        <table className="table table-hover table-bordered ">
           <thead>
             <tr>
               <th>Nro. Orden</th>
-              <th colspan="2">Presupuesto</th>
+              <th colSpan="2">Presupuesto</th>
               <th colSpan="2">Cliente</th>
               <th>Fecha</th>
               <th>Estado</th>
@@ -29,11 +21,11 @@ const Home = () => {
               <th>Factura</th>
             </tr>
           </thead>
-          <tbody class="table-group-divider">
+          <tbody className="table-group-divider">
             <tr>
               <td>1256</td>
               <td colSpan="2">hola como va</td>
-              <td colspan="2"> victoria aquiere</td>
+              <td colSpan="2"> victoria aquiere</td>
               <td>13/07/2023</td>
               <td>Ingresado</td>
               <td>23452</td>
@@ -46,4 +38,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Ordenes;

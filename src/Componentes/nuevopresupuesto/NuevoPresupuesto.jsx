@@ -1,6 +1,49 @@
-import { BiSearchAlt2 } from "react-icons/bi";
+import { useState, useEffect } from "react";
+import Modal from "../modal/Modal.jsx";
+import Boton from "../modal/boton/Boton.jsx";
+import axios from "axios";
 
 const NuevoPresupuesto = () => {
+  const [buscador, setBuscador] = useState("");
+  const [productos, setProductos] = useState([]);
+
+  const URL = "http://localhost:5000/api/";
+
+  const showData = async () => {
+    let data = "";
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: URL + "articulos",
+      headers: {
+        Authorization: "Bearer ESTE_ES_EL_TOKEN",
+      },
+      data: data,
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setProductos(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const busqueda = (e) => {
+    setBuscador(e.target.value);
+  };
+
+  const resultado = !buscador
+    ? productos
+    : productos.filter((dato) =>
+        dato.descripcion.toLowerCase().includes(buscador.toLocaleLowerCase())
+      );
+
+  useEffect(() => {
+    showData();
+  }, []);
+
   return (
     <>
       <div id="root">
@@ -35,7 +78,7 @@ const NuevoPresupuesto = () => {
                           aria-label="change currency"
                           className="light weight-100 my-1 form-select"
                         >
-                          <option>12564897561</option>
+                          <option>Seleccionar Talonario</option>
                           <option>2</option>
                           <option>3</option>
                           <option>4</option>
@@ -48,6 +91,12 @@ const NuevoPresupuesto = () => {
                       <div className="col">
                         <label className="fw-bolder form-label">
                           Paciente:
+                          <Boton />
+                          <Modal
+                            titulo="Pacientes"
+                            placeholder="Buscar Paciente"
+                            onChange={buscador}
+                          />
                         </label>
                         <input
                           type="text"
@@ -77,13 +126,21 @@ const NuevoPresupuesto = () => {
                           className="my-2 form-control"
                         />
                       </div>
-                      <div class="col">
-                        <label class="fw-bold form-label">Razon social:</label>
+                      <div className="col">
+                        <label className="fw-bold form-label">
+                          Razon social:
+                          <Boton />
+                          <Modal
+                            titulo="Razon Social"
+                            placeholder="Buscar por Razon Social"
+                            onChange={buscador}
+                          />
+                        </label>
                         <input
                           placeholder="Nombre"
                           rows="3"
                           name="razonsocial"
-                          autocomplete="nombre"
+                          autoComplete="nombre"
                           required
                           type="text"
                           className="my-2 form-control"
@@ -91,7 +148,7 @@ const NuevoPresupuesto = () => {
                         <input
                           placeholder="Dni"
                           name="razonsocialdni"
-                          autocomplete="number"
+                          autoComplete="number"
                           required
                           type="number"
                           className="my-2 form-control"
@@ -99,7 +156,7 @@ const NuevoPresupuesto = () => {
                         <input
                           placeholder="Domicilio"
                           name="razonsocialdomicilio"
-                          autocomplete="Domicilio"
+                          autoComplete="Domicilio"
                           required
                           type="text"
                           className="my-2 form-control"
@@ -107,31 +164,33 @@ const NuevoPresupuesto = () => {
                       </div>
                     </div>
                     <div className="mb-5 row">
-                      <div class="col">
-                        <label class="fw-bold form-label">Nro. carnet:</label>
+                      <div className="col">
+                        <label className="fw-bold form-label">
+                          Nro. carnet:
+                        </label>
                         <input
                           placeholder="Nro.carnet"
                           name="numerocarnet"
-                          autocomplete="number"
+                          autoComplete="number"
                           required
                           type="number"
                           className="my-2 form-control"
                         />
-                        <label class="fw-bold form-label">
+                        <label className="fw-bold form-label">
                           Nro. orden de compra:
                         </label>
                         <input
                           placeholder="Nro.orden de compra"
                           name="nroordencompra"
-                          autocomplete="number"
+                          autoComplete="number"
                           required
                           type="number"
                           className="my-2 form-control"
                         />
                       </div>
-                      <div class="col">
+                      <div className="col">
                         <div className="p-3">
-                          <label class="fw-bold form-label">
+                          <label className="fw-bold form-label">
                             Orden compra:
                           </label>
                           <input
@@ -140,7 +199,7 @@ const NuevoPresupuesto = () => {
                             title="Seleccionar Archivo"
                             id="importData"
                           />
-                          <label class="fw-bold form-label">
+                          <label className="fw-bold form-label">
                             Orden medica:
                           </label>
                           <input
@@ -149,7 +208,7 @@ const NuevoPresupuesto = () => {
                             title="Seleccionar Archivo"
                             id="importData"
                           />
-                          <label class="fw-bold form-label">
+                          <label className="fw-bold form-label">
                             Cert.discapacidad:
                           </label>
                           <input
@@ -172,17 +231,16 @@ const NuevoPresupuesto = () => {
                           name="cobertura"
                           className="my-2 form-control"
                         />
-
                         <div className="row">
                           <div className="col">
-                            <div class="form-check ">
+                            <div className="form-check ">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 id="flexCheckIndeterminate"
                               />
                               <label
-                                class="form-check-label"
+                                className="form-check-label"
                                 for="flexCheckIndeterminate"
                               >
                                 c/u
@@ -190,14 +248,14 @@ const NuevoPresupuesto = () => {
                             </div>
                           </div>
                           <div className="col">
-                            <div class="form-check">
+                            <div className="form-check">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 id="flexCheckIndeterminate"
                               />
                               <label
-                                class="form-check-label"
+                                className="form-check-label"
                                 for="flexCheckIndeterminate"
                               >
                                 Total
@@ -205,14 +263,14 @@ const NuevoPresupuesto = () => {
                             </div>
                           </div>
                           <div className="col">
-                            <div class="form-check">
+                            <div className="form-check">
                               <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 id="flexCheckIndeterminate"
                               />
                               <label
-                                class="form-check-label"
+                                className="form-check-label"
                                 for="flexCheckIndeterminate"
                               >
                                 Discapacidad exento
@@ -240,13 +298,12 @@ const NuevoPresupuesto = () => {
                       <div className="col">
                         <label className="fw-bolder form-label">
                           Items:
-                          <button
-                            className="btn btn-dark m-2"
-                            data-bs-toggle="modal"
-                            data-bs-target="#exampleModal"
-                          >
-                            <BiSearchAlt2 />
-                          </button>
+                          <Boton />
+                          <Modal
+                            titulo="Productos"
+                            placeholder="Buscar Productos"
+                            onChange={buscador}
+                          />
                         </label>
                         <table className="table table-hover table-bordered ">
                           <thead>
@@ -268,6 +325,72 @@ const NuevoPresupuesto = () => {
                         </table>
                       </div>
                     </div>
+                    <div className="mb-5 row">
+                      <div className="col ">
+                        <input
+                          placeholder="Leyenda 1"
+                          name="leyenda"
+                          type="text"
+                          className="my-2 form-control"
+                        />
+                        <input
+                          placeholder="Leyenda 2"
+                          name="leyenda"
+                          type="text"
+                          className="my-2 form-control"
+                        />
+                        <input
+                          placeholder="Leyenda 3"
+                          name="leyenda"
+                          type="text"
+                          className="my-2 form-control"
+                        />
+                        <input
+                          placeholder="Leyenda 4"
+                          name="leyenda"
+                          type="text"
+                          className="my-2 form-control"
+                        />
+                        <input
+                          placeholder="Leyenda 5"
+                          name="leyenda"
+                          type="text"
+                          className="my-2 form-control"
+                        />
+                      </div>
+                      <div className="col py-3 ">
+                        <div className="d-flex flex-row justify-content-around px-2">
+                          <label className="fw-bolder form-label">
+                            Sub total:
+                          </label>
+                          <p className="p-1">0.00</p>
+                        </div>
+                        <div className="d-flex flex-row justify-content-around px-2">
+                          <label className="fw-bolder form-label">
+                            Bonificacion:
+                          </label>
+                          <p className="p-1">0.00</p>
+                        </div>
+                        <div className="d-flex flex-row justify-content-around px-2">
+                          <label className="fw-bolder form-label">
+                            Cobertura:
+                          </label>
+                          <p className="p-1">0.00</p>
+                        </div>
+                        <div className="d-flex flex-row justify-content-around ">
+                          <label className="fw-bolder form-label">Total:</label>
+                          <p className="p-1">0.00</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-end ">
+                      <div className="p-4">
+                        <button className="btn btn-danger ">Cancelar</button>
+                      </div>
+                      <div className="p-4">
+                        <button className="btn btn-success ">Guardar</button>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="col-lg-4 ">
@@ -279,23 +402,23 @@ const NuevoPresupuesto = () => {
                       data-bs-toggle="modal"
                     />
                     <div className="py-3">
-                      <table class="table table-hover table-bordered ">
+                      <table className="table table-hover table-bordered ">
                         <thead>
                           <tr>
                             <th>Codigo</th>
-                            <th colspan="2">Nombre</th>
+                            <th colSpan="2">Nombre</th>
                             <th>Comision</th>
                           </tr>
                         </thead>
-                        <tbody class="table-group-divider">
+                        <tbody className="table-group-divider">
                           <tr>
                             <th>1256</th>
-                            <td colspan="2"> victoria aquiere</td>
+                            <td colSpan="2"> victoria aquiere</td>
                             <td>1.32</td>
                           </tr>
                           <tr>
                             <th>2489</th>
-                            <td colspan="2">victoria aquiere</td>
+                            <td colSpan="2">victoria aquiere</td>
                             <td>2.56</td>
                           </tr>
                         </tbody>
@@ -308,23 +431,23 @@ const NuevoPresupuesto = () => {
                       data-bs-toggle="modal"
                     />
                     <div className="py-3">
-                      <table class="table table-hover table-bordered ">
+                      <table className="table table-hover table-bordered ">
                         <thead>
                           <tr>
                             <th>Codigo</th>
-                            <th colspan="2">Nombre</th>
+                            <th colSpan="2">Nombre</th>
                             <th>Comision</th>
                           </tr>
                         </thead>
-                        <tbody class="table-group-divider">
+                        <tbody className="table-group-divider">
                           <tr>
                             <th>1256</th>
-                            <td colspan="2"> victoria aquiere</td>
+                            <td colSpan="2"> victoria aquiere</td>
                             <td>1.32</td>
                           </tr>
                           <tr>
                             <th>2489</th>
-                            <td colspan="2">victoria aquiere</td>
+                            <td colSpan="2">victoria aquiere</td>
                             <td>2.56</td>
                           </tr>
                         </tbody>
@@ -334,34 +457,6 @@ const NuevoPresupuesto = () => {
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
-      {/* modal */}
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">
-              Buscar Productos:
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <select
-              class="form-select"
-              multiple
-              aria-label="Multiple select example"
-            >
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
           </div>
         </div>
       </div>

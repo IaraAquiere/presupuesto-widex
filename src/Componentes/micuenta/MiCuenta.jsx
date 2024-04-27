@@ -1,9 +1,5 @@
-import "./MiCuenta.css"
-
 const MiCuenta = () => {
-  return (
-    <div>MiCuenta</div>
-  )
-}
+  return <></>;
+};
 
-export default MiCuenta
+export default MiCuenta;
